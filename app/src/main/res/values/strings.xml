@@ -1,8 +1,22 @@
 <resources>
     <string name="app_name">My Map</string>
-    <string name="title_activity_maps">Map</string>
-    <string name="normal_map">NORMAL</string>
-    <string name="hybrid_map">HIBRIDO</string>
-    <string name="satellite_map">SATELITAL</string>
-    <string name="terrrain_map">TERRENO</string>
+    <string name="title_activity_maps">Laboratorio - Google Maps</string>
+    <string-array name="map_style">
+        <item>Tipo de Mapa</item>
+        <item>Normal - Ruta hacia Japon</item>
+        <item>Híbrido - Ruta hacia Alemania</item>
+        <item>Satelital -Ruta hacia Italia</item>
+        <item>Terreno - Ruta hacia Francia</item>
+    </string-array>
+    <string name="settings">Ajustes</string>
+    <string name="actualLocation">Mi ubicación en Tacna - Perú</string>
+    <string name="japon">Japon</string>
+    <string name="alemania">Alemania</string>
+    <string name="italia">Italia</string>
+    <string name="francia">Francia</string>
+    <string name="origen">Origen: </string>
+    <string name="destino">Destino: </string>
+    <string name="distancia">"Distancia: "</string>
+    <string name="medida">Km</string>
+    <string name="aceptar">Aceptar</string>
 </resources>
