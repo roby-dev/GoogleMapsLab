@@ -1,0 +1,49 @@
+package com.example.mymap;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+
+public class  ItemAdapter extends ArrayAdapter<SpinnerItem> {
+
+    public ItemAdapter(Context context, ArrayList<SpinnerItem> itemList){
+        super(context,0,itemList);
+    }
+
+    @Override
+    public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        return initView(position, convertView, parent);
+    }
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        return initView(position, convertView, parent);
+    }
+
+    private View initView(int position,View convertView,ViewGroup parent){
+        if(convertView==null){
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.map_style_spinner,parent,false);
+        }
+
+        ImageView imageView = convertView.findViewById(R.id.img_style_item);
+        TextView txtName = convertView.findViewById(R.id.txt_style_item);
+        SpinnerItem currentItem = getItem(position);
+        if(currentItem!=null){
+            imageView.setImageResource(currentItem.getImgItem());
+            txtName.setText(currentItem.getItmeName());
+        }
+        return convertView;
+    }
+}
