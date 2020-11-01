@@ -273,21 +273,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-
         mMap.getUiSettings().setZoomControlsEnabled(true);
         enableMyLocation();
 
         setMapLongClick(mMap);
         setPoiClick(mMap);
-        enableMyLocation();
         setInfoWindowClickToPanorama(mMap);
-        setMapStyle(seleccion);
+
 
         //String[] maptypes = getResources().getStringArray(R.array.map_style);
         //ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(maptypes));
         //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,R.layout.style_spinner,arrayList);
         //spinner.setAdapter(arrayAdapter);
-        setUp();
+
     }
 
     private void getUbication() {
@@ -339,6 +337,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if(ContextCompat.checkSelfPermission(getBaseContext(), Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager
         .PERMISSION_GRANTED){
             mMap.setMyLocationEnabled(true);
+            setMapStyle(seleccion);
+            setUp();
         } else{
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_LOCATION_PERMISSION);
         }
@@ -347,11 +347,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if(requestCode==REQUEST_LOCATION_PERMISSION){
-
                 if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
                     enableMyLocation();
                 }
-
         }
     }
 
